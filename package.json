@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node src/server/index.js",
     "client": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,11 +13,11 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.15.2",
+    "http": "0.0.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "redux": "^3.6.0",
-    "redux-share-client": "git+https://git@github.com/baptistemanson/redux-share-client.git",
-    "redux-share-server": "git+https://git@github.com/baptistemanson/redux-share-server.git"
+    "redux-share": "0.0.2"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",

@@ -1,6 +1,6 @@
-import * as chatActions from '../actions/chat-actions';
+var chatActions = require('../actions/chat-actions');
 
-export function messages(state = [], action) {
+module.exports.messages = function(state = [], action) {
   switch(action.type) {
     case chatActions.NEW_MESSAGE:
       return [...state, action.payload];

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { sendMessage } from '../actions/chat-actions'
+import { sendMessage } from '../../shared/actions/chat-actions';
 
 class ChatInput extends Component {
   constructor(props) {
