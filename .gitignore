@@ -1,2 +1,6 @@
+/*ignore directories*/
 node_modules/
+
+/*ignore certain files*/
+*.swp
 src/public/bundle.js
