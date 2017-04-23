@@ -22,7 +22,7 @@ class ChatInput extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    this.props.sendMessage("Lawrence Vo", this.state.value);
+    this.props.sendMessage(this.state.value);
     this.setState({ value: "" });
   }
 }
