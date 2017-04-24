@@ -4,10 +4,13 @@ var express = require('express');
 var app = express();
 
 var server = require('http').Server(app);
-var store = require('../shared/store');
-var syncReduxServer = require('redux-share').server(store, server);
+var redux = require('redux');
+var ReduxShareServer= require('redux-share-server');
 
-app.use('/redux',syncReduxServer.getMiddleware());
+var reduxShare = new ReduxShareServer(server);
+var reduxShareMW = reduxShare.getReduxMiddleware();
+var reducers = require('../shared/reducers/root-reducer');
+var store = redux.createStore(reducers, redux.applyMiddleware(reduxShareMW));
 
 var publicDir = path.join(__dirname, '..', 'public');
 
