@@ -5,9 +5,10 @@ var app = express();
 
 var server = require('http').Server(app);
 var redux = require('redux');
-var ReduxShareServer= require('redux-share-server');
+var ReduxShareServer = require('redux-share-server');
 
-var reduxShare = new ReduxShareServer(server);
+var config = { repeaterMode: true };
+var reduxShare = new ReduxShareServer(server, config);
 var reduxShareMW = reduxShare.getReduxMiddleware();
 var reducers = require('../shared/reducers/root-reducer');
 var store = redux.createStore(reducers, redux.applyMiddleware(reduxShareMW));
@@ -20,4 +21,10 @@ app.get('/', function(req, res) {
   res.sendFile(path.join(publicDir, 'index.html'));
 });
 
-server.listen(3000);
+app.use('/redux', reduxShareMW);
+
+store.dispatch({ type:"@@SERVER-LISTEN-START" });
+
+server.listen(3000, function() {
+  console.log('Listening on port 3000!')
+});

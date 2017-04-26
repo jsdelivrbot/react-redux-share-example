@@ -16,6 +16,7 @@
     "http": "0.0.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-redux": "^5.0.4",
     "redux": "^3.6.0",
     "redux-share-client": "git+https://git@github.com/baptistemanson/redux-share-client.git",
     "redux-share-server": "git+https://git@github.com/baptistemanson/redux-share-server.git"
@@ -28,7 +29,6 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "path": "^0.12.7",
-    "react-redux": "^5.0.4",
     "webpack": "^1.15.0",
     "webpack-dev-server": "^1.14.0"
   }
