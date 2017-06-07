@@ -7,7 +7,7 @@ var server = require('http').Server(app);
 var redux = require('redux');
 var ReduxShareServer = require('redux-share-server');
 
-var config = { repeaterMode: true };
+var config = { debug: true, repeaterMode: false };
 var reduxShare = new ReduxShareServer(server, config);
 var reduxShareMW = reduxShare.getReduxMiddleware();
 var reducers = require('../shared/reducers/root-reducer');
@@ -21,7 +21,7 @@ app.get('/', function(req, res) {
   res.sendFile(path.join(publicDir, 'index.html'));
 });
 
-app.use('/redux', reduxShareMW);
+//app.use('/redux', reduxShareMW);
 
 store.dispatch({ type:"@@SERVER-LISTEN-START" });
 
